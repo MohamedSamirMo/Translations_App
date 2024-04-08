@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.translationapp"
+    namespace = "com.GlobalTongue.translationapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.translationapp"
+        applicationId = "com.GlobalTongue.translationapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
