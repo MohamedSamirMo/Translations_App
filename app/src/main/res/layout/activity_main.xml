@@ -7,78 +7,84 @@
     android:background="@drawable/cc"
     android:padding="8dp"
     tools:context=".MainActivity">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/sourceLanguageEt"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter  English"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:minHeight="100dp"
-            android:gravity="top"
-            android:textSize="18sp" />
-        <TextView
-            android:id="@+id/targetLanguageTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"
-            />
+            android:orientation="vertical">
 
-    </LinearLayout>
-</ScrollView>
+            <EditText
+                android:id="@+id/sourceLanguageEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="Enter  English"
+                android:minHeight="100dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/targetLanguageTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_above="@+id/translateBtn"
         android:gravity="center">
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sourceLanguageChooseBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
+            android:layout_marginBottom="4dp"
             android:layout_weight="1"
             android:textSize="20dp"
-            android:textColor="#F39306"
+            android:textColor="@color/black"
             android:background="@drawable/box"
             android:text="English"
             app:cornerRadius="10dp"/>
         <ImageView
+            android:id="@+id/baseAarray"
             android:src="@drawable/baseline_arrow_forward_24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/targetLanguageChooseBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/box"
             android:layout_weight="1"
-            android:textColor="#F39306"
+            android:textColor="@color/black"
             android:layout_marginStart="5dp"
+            android:layout_marginBottom="4dp"
             android:text="Urdu"
             android:textSize="20dp"
             app:cornerRadius="10dp"
             />
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/translateBtn"
-        android:textColor="#CD800E"
+        android:textColor="@color/black"
         android:layout_alignParentBottom="true"
         android:text="Translate"
         android:textSize="20dp"

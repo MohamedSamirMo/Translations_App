@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import com.google.android.material.button.MaterialButton
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
@@ -16,13 +19,15 @@ import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import java.util.Locale
-
+//androidx.appcompat.widget.AppCompatButton
 class MainActivity : AppCompatActivity() {
+    private var translationResult: String = ""
     private lateinit var SLanguageEd:EditText
     private lateinit var TLanguageTv:TextView
-    private lateinit var CLaguageBtn:MaterialButton
-    private lateinit var targetChooseBtn:MaterialButton
-    private lateinit var translateBtn:MaterialButton
+    private lateinit var CLaguageBtn:AppCompatButton
+    private lateinit var baseline_arrow_forward_24:ImageView
+    private lateinit var targetChooseBtn:AppCompatButton
+    private lateinit var translateBtn:AppCompatButton
 
     companion object{
         private  const val TAG="MAIN_TAG"
@@ -48,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         CLaguageBtn=findViewById(R.id.sourceLanguageChooseBtn)
         targetChooseBtn=findViewById(R.id.targetLanguageChooseBtn)
         translateBtn=findViewById(R.id.translateBtn)
+        baseline_arrow_forward_24=findViewById(R.id.baseAarray)
 
         // init Dialog
         progressDialog= ProgressDialog(this)
@@ -57,13 +63,16 @@ class MainActivity : AppCompatActivity() {
 
         CLaguageBtn.setOnClickListener {
             sourceLanguageChoose()
+            translate()
 
         }
         targetChooseBtn.setOnClickListener {
             targetLanguageChoose()
+            translate()
         }
         translateBtn.setOnClickListener {
             vaildateDate()
+            translate()
         }
 
 
@@ -71,6 +80,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var sourceLanguageText=""
+    private fun translate() {
+        // Assume translation logic here and displaying result in targetLanguageTv
+        // After displaying the translation, hide the Translate button
+
+
+        // Check if translation result is visible
+        if (translationResult.isNotEmpty()) {
+            TLanguageTv.text = translationResult
+            // Set alpha value to make buttons more transparent
+            CLaguageBtn.alpha = 0.5f // Half transparent
+            targetChooseBtn.alpha = 0.5f // Half transparent
+            translateBtn.alpha = 0.5f
+            baseline_arrow_forward_24.alpha = 0.5f
+
+        } else {
+            // If the result is empty, make buttons even more transparent
+            CLaguageBtn.alpha = 0.2f // More transparent
+            targetChooseBtn.alpha = 0.2f // More transparent
+            translateBtn.alpha = 0.2f
+            baseline_arrow_forward_24.alpha = 0.2f
+        }
+    }
     private fun vaildateDate() {
         sourceLanguageText=SLanguageEd.text.toString().trim()
         Log.d(TAG, "vaildateDate: sourceLanguageText$sourceLanguageText")

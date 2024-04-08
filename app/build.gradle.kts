@@ -46,4 +46,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 //  Adding library i.e.Google/Firebase Ml Translator
     implementation ("com.google.mlkit:translate:17.0.2")
+    // Animation
+    implementation ("com.airbnb.android:lottie:6.1.0")
 }

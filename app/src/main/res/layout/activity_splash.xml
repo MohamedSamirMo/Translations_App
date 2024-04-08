@@ -7,12 +7,22 @@
     android:background="@color/white"
     tools:context=".splashActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/anmination" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="211dp"
         android:layout_height="140dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="340dp"
         android:src="@drawable/splashscreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,23 +46,19 @@
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:indeterminateTint="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/textView"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/merriweathersans_bold"
-        android:text="DESIGN BY\nMohamed Samir"
-        android:textAlignment="center"
-        android:textColor="#03A9F4"
-        android:textSize="12sp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie2"
+        android:layout_width="160dp"
+        android:layout_height="95dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.99" />
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/good" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
