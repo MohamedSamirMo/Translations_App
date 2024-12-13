@@ -19,7 +19,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -36,16 +37,34 @@ android {
 }
 
 dependencies {
-
+    // Core Android libraries
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // Google ML Kit Translator
+    implementation("com.google.mlkit:translate:17.0.2")
+
+    // Animation library
+    implementation("com.airbnb.android:lottie:6.1.0")
+
+    // JUnit for unit tests
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-//  Adding library i.e.Google/Firebase Ml Translator
-    implementation ("com.google.mlkit:translate:17.0.2")
-    // Animation
-    implementation ("com.airbnb.android:lottie:6.1.0")
+
+    // Kotlin coroutine testing (optional if you're using coroutines)
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+
+    // Multidex (remove if not needed)
+    implementation("androidx.multidex:multidex:2.0.1")
+    testImplementation ("io.mockk:mockk:1.12.0")
+    androidTestImplementation ("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.6.1")
+
+    androidTestImplementation ("androidx.test.espresso:espresso-intents:3.6.1")
+    androidTestImplementation ("androidx.test.espresso:espresso-contrib:3.6.1")
+    androidTestImplementation ("androidx.test.ext:junit:1.2.1")
+    testImplementation ("io.mockk:mockk:1.13.5") // Check for the latest version
+    testImplementation ("net.bytebuddy:byte-buddy:1.14.4") // Check for the latest version
+    testImplementation ("net.bytebuddy:byte-buddy-agent:1.14.4")
 }

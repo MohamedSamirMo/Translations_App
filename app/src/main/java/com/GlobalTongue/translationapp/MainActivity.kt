@@ -23,30 +23,30 @@ import com.google.mlkit.nl.translate.TranslatorOptions
 import java.util.Locale
 //androidx.appcompat.widget.AppCompatButton
 class MainActivity : AppCompatActivity() {
-    private var translationResult: String = ""
-    private lateinit var SLanguageEd:EditText
-    private lateinit var TLanguageTv:TextView
-    private lateinit var CLaguageBtn:AppCompatButton
-    private lateinit var baseline_arrow_forward_24:ImageView
-    private lateinit var targetChooseBtn:AppCompatButton
-    private lateinit var translateBtn:AppCompatButton
+    var translationResult: String = ""
+    lateinit var SLanguageEd:EditText
+    lateinit var TLanguageTv:TextView
+    lateinit var CLaguageBtn:AppCompatButton
+    lateinit var baseline_arrow_forward_24:ImageView
+    lateinit var targetChooseBtn:AppCompatButton
+    lateinit var translateBtn:AppCompatButton
 
     companion object{
         private  const val TAG="MAIN_TAG"
     }
 
     //will contain list with language
-    private var languageArrayList:ArrayList<ModelLanguage>?=null
+    var languageArrayList:ArrayList<ModelLanguage>?=null
 
     //default /select language
-    private var sourceLanguageCode="en"
-    private var sourceLanguageTitle="English"
-    private var targetLanguageCode="ur"
-    private var targetLanguageTitle="Urdu"
+    var sourceLanguageCode="en"
+    var sourceLanguageTitle="English"
+    var targetLanguageCode="ur"
+    var targetLanguageTitle="Urdu"
 
     private lateinit var translatorOption:TranslatorOptions
-    private lateinit var translator:Translator
-    private lateinit var  progressDialog:ProgressDialog
+    lateinit var translator:Translator
+    lateinit var  progressDialog:ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -86,8 +86,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private var sourceLanguageText=""
-    private fun translate() {
+    var sourceLanguageText=""
+    fun translate() {
         // Assume translation logic here and displaying result in targetLanguageTv
         // After displaying the translation, hide the Translate button
 
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             baseline_arrow_forward_24.alpha = 0.2f
         }
     }
-    private fun vaildateDate() {
+    fun vaildateDate() {
         sourceLanguageText=SLanguageEd.text.toString().trim()
         Log.d(TAG, "vaildateDate: sourceLanguageText$sourceLanguageText")
         if (sourceLanguageText.isEmpty()){
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun startTranslations() {
+    fun startTranslations() {
         progressDialog.setMessage("Processing Language Model....")
         progressDialog.show()
 
@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
             languageArrayList!!.add(modelLanguage)
         }
     }
-    private fun sourceLanguageChoose(){
+    fun sourceLanguageChoose(){
         val popMenu=PopupMenu(this,CLaguageBtn)
         for (i in languageArrayList!!.indices){
             popMenu.menu.add(Menu.NONE,i,i, languageArrayList!![i].languageTitle)
@@ -185,7 +185,7 @@ class MainActivity : AppCompatActivity() {
             false
         }
     }
-    private fun targetLanguageChoose() {
+    fun targetLanguageChoose() {
         val popMenu = PopupMenu(this, targetChooseBtn)
         for (i in languageArrayList!!.indices) {
             popMenu.menu.add(Menu.NONE, i, i, languageArrayList!![i].languageTitle)
@@ -203,7 +203,7 @@ class MainActivity : AppCompatActivity() {
             false
         }
     }
-    private fun showToast(message:String){
+    fun showToast(message:String){
         Toast.makeText(this,message,Toast.LENGTH_LONG).show()
 
 
